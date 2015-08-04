@@ -1,9 +1,9 @@
 'use strict';
 
 //Articles service used for communicating with the articles REST endpoints
-angular.module('articles').factory('Articles', ['$resource',
+angular.module('cars').factory('Cars', ['$resource',
 	function($resource) {
-		return $resource('articles/:articleId', {
+		return $resource('cars/:carId', {
 			articleId: '@_id'
 		}, {
 			update: {

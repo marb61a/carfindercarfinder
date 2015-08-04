@@ -1,25 +1,25 @@
 'use strict';
 
 // Setting up route
-angular.module('articles').config(['$stateProvider',
+angular.module('cars').config(['$stateProvider',
 	function($stateProvider) {
 		// Articles state routing
 		$stateProvider.
-		state('listArticles', {
-			url: '/articles',
-			templateUrl: 'modules/articles/views/list-articles.client.view.html'
+		state('listCars', {
+			url: '/cars',
+			templateUrl: 'modules/cars/views/list-cars.client.view.html'
 		}).
-		state('createArticle', {
-			url: '/articles/create',
-			templateUrl: 'modules/articles/views/create-article.client.view.html'
+		state('createCar', {
+			url: '/cars/create',
+			templateUrl: 'modules/cars/views/create-car.client.view.html'
 		}).
-		state('viewArticle', {
-			url: '/articles/:articleId',
-			templateUrl: 'modules/articles/views/view-article.client.view.html'
+		state('viewCar', {
+			url: '/cars/:carId',
+			templateUrl: 'modules/cars/views/view-car.client.view.html'
 		}).
-		state('editArticle', {
-			url: '/articles/:articleId/edit',
-			templateUrl: 'modules/articles/views/edit-article.client.view.html'
+		state('editCar', {
+			url: '/cars/:carId/edit',
+			templateUrl: 'modules/cars/views/edit-car.client.view.html'
 		});
 	}
 ]);
