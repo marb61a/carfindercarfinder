@@ -5,7 +5,7 @@ angular.module('cars').controller('CarsController', ['$scope', '$stateParams', '
 	function($scope, $stateParams, $location, Authentication, Cars) {
 		$scope.authentication = Authentication;
 
-		// Create new Article
+		// Create new Car
 		$scope.create = function() {
 			
 			// Create new Car object
@@ -28,9 +28,9 @@ angular.module('cars').controller('CarsController', ['$scope', '$stateParams', '
 
 		// Remove existing Car
 		$scope.remove = function(car) {
+			
 			if (car) {
 				car.$remove();
-
 				for (var i in $scope.cars) {
 					if ($scope.cars[i] === car) {
 						$scope.cars.splice(i, 1);
@@ -45,6 +45,7 @@ angular.module('cars').controller('CarsController', ['$scope', '$stateParams', '
 
 		// Update existing Car
 		$scope.update = function() {
+			
 			var car = $scope.car;
 
 			car.$update(function() {
