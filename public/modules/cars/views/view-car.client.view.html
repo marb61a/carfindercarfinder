@@ -1,32 +1,30 @@
 <section data-ng-controller="CarsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1> Sample Car One</h1>
+		<h1> {{car.title}} ({{car.state}})</h1>
 	</div>
 	<div class="row">
 		<div class="col-md-4">
-			<img src="img/camry.jpg" class="img-thumbnail">
+			<img src="{{car.imageurl}}" class="img-thumbnail">
 		</div>
 		<div class="col-md-8">
 			<ul>
-				<li>Make: Toyota</li>
-				<li>Model:Camry</li>
-				<li>Year: 2015</li>
-				<li>Price: $10,000</li>
+				<li>Make: {{car.make}}</li>
+				<li>Model:{{car.model}}</li>
+				<li>Year: {{car.year}}</li>
+				<li>Price: ${{car.price}}</li>
 			</ul>
 		</div>
 	</div>
 	<br><br>
 	<div class="row">
 		<div class="col-md-12">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et porttitor velit. Sed eget erat facilisis, bibendum lorem non, 
-			suscipit lorem. Cras ac iaculis sem, quis scelerisque velit. Nam libero ante, rutrum nec ullamcorper varius, iaculis sit amet metus. 
-			Phasellus eget finibus quam, sed convallis just</p>
-			<a href="mailto:someone@example.com" class="btn btn-primary">Contact Owner</a>
+			<p>{{car.description}}</p>
+			<a href="mailto:{{car.contact_email}}" class="btn btn-primary">Contact Owner</a>
 		</div>
 	</div>
 	<br><br>
-	<div class="pull-right" data-ng-show="authentication.user._id == article.user._id">
-		<a class="btn btn-primary" href="/#!/articles/{{article._id}}/edit">
+	<div class="pull-right" data-ng-show="authentication.user._id == car.user._id">
+		<a class="btn btn-primary" href="/#!/cars/{{car._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
 		<a class="btn btn-primary" data-ng-click="remove();">
@@ -36,10 +34,9 @@
 	<small>
 		<em class="text-muted">
 			Posted on
-			<span data-ng-bind="article.created | date:'mediumDate'"></span>
+			<span data-ng-bind="car.created | date:'mediumDate'"></span>
 			by
-			<span data-ng-bind="article.user.displayName"></span>
+			<span data-ng-bind="car.user.displayName"></span>
 		</em>
 	</small>
-	<p class="lead" data-ng-bind="article.content"></p>
 </section>
