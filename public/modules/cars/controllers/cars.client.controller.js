@@ -7,6 +7,7 @@ angular.module('cars').controller('CarsController', ['$scope', '$stateParams', '
 
 		// Create new Car
 		$scope.create = function() {
+			
 			// Create new Car object
 			var car = new Cars({
 				title: this.title,
@@ -23,7 +24,7 @@ angular.module('cars').controller('CarsController', ['$scope', '$stateParams', '
 
 			// Redirect after save
 			car.$save(function(response) {
-				$location.path('articles/' + response._id);
+				$location.path('cars/' + response._id);
 				// Clear form fields
 				$scope.title = '';
 				$scope.make = '';
@@ -44,6 +45,7 @@ angular.module('cars').controller('CarsController', ['$scope', '$stateParams', '
 		$scope.remove = function(car) {
 			if (car) {
 				car.$remove();
+
 				for (var i in $scope.cars) {
 					if ($scope.cars[i] === car) {
 						$scope.cars.splice(i, 1);
@@ -59,6 +61,7 @@ angular.module('cars').controller('CarsController', ['$scope', '$stateParams', '
 		// Update an existing Car
 		$scope.update = function() {
 			var car = $scope.car;
+
 			car.$update(function() {
 				$location.path('cars/' + car._id);
 			}, function(errorResponse) {
@@ -71,7 +74,7 @@ angular.module('cars').controller('CarsController', ['$scope', '$stateParams', '
 			$scope.cars = Cars.query();
 		};
 
-		// Find an sexisting Car
+		// Find an existing Car
 		$scope.findOne = function() {
 			$scope.car = Cars.get({
 				carId: $stateParams.carId

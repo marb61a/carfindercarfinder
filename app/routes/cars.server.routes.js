@@ -7,16 +7,16 @@ var cars = require('../../app/controllers/cars.server.controller');
 module.exports = function(app){
   
     // Car Routes
-    app.route('/cars')
-        .get(cars.list)
-        .post(users.requiresLogin, cars.create);
+   app.route('/cars')
+		.get(cars.list,cars.search)
+		.post(users.requiresLogin, cars.create);
 
-    app.route('/cars/:carId')
+	app.route('/cars/:carId')
 		.get(cars.read)
 		.put(users.requiresLogin, cars.hasAuthorization, cars.update)
 		.delete(users.requiresLogin, cars.hasAuthorization, cars.delete);
-		
-    // Bind car middleware
-    app.param('carId', cars.carByID);
-    app.param('carMake', cars.carByMake);
+
+	// Finish by binding the car middleware
+	app.param('carId', cars.carByID);
+	app.param('carMake', cars.carByMake);
 };
