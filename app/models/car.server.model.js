@@ -54,6 +54,11 @@ var CarSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	imageurl: {
+		type: String,
+		default: '',
+		trim: true
+	},
 	contact_email: {
 		type: String,
 		default: '',

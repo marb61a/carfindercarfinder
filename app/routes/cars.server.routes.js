@@ -18,5 +18,5 @@ module.exports = function(app){
 		
     // Bind car middleware
     app.param('carId', cars.carByID);
-  
+    app.param('carMake', cars.carByMake);
 };

@@ -3,7 +3,7 @@
 // Setting up route
 angular.module('cars').config(['$stateProvider',
 	function($stateProvider) {
-		// Articles state routing
+		// Cars state routing
 		$stateProvider.
 		state('listCars', {
 			url: '/cars',
@@ -16,6 +16,10 @@ angular.module('cars').config(['$stateProvider',
 		state('viewCar', {
 			url: '/cars/:carId',
 			templateUrl: 'modules/cars/views/view-car.client.view.html'
+		}).
+		state('searchCar', {
+			url: '/cars/search',
+			templateUrl: 'modules/cars/views/search-car.client.view.html'
 		}).
 		state('editCar', {
 			url: '/cars/:carId/edit',
