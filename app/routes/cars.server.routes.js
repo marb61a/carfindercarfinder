@@ -7,9 +7,12 @@ var cars = require('../../app/controllers/cars.server.controller');
 module.exports = function(app){
   
     // Car Routes
-   app.route('/cars')
+	app.route('/cars')
 		.get(cars.list,cars.search)
 		.post(users.requiresLogin, cars.create);
+	
+	app.route('/search')
+		.get(cars.search);		
 
 	app.route('/cars/:carId')
 		.get(cars.read)
@@ -18,5 +21,5 @@ module.exports = function(app){
 
 	// Finish by binding the car middleware
 	app.param('carId', cars.carByID);
-	app.param('carMake', cars.carByMake);
+	//app.param('carMake', cars.carByMake);
 };

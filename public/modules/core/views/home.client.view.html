@@ -3,10 +3,10 @@
 		<div class="row">
 			<div class="col-md-6">
 				<h3>Find A Car</h3>
-				<form>
+				<form method="get" action="/#!/search">
 					<div class="form-group">
 						<input type="radio" name="type" value="new"> New
-						<input type="radio" name="type" value="used"> Used
+						<input type="radio" name="type" value="used" checked> Used
 					</div>
 					<div class="form-group">
 						<select name="make" class="form-control">
@@ -97,10 +97,11 @@
 	<div class="row home-cars">
 		<h3>Latest Cars</h3>
 		<div class="col-md-3" ng-repeat="car in cars">
-			<h3>{{car.title}}</h3>
-			<img src="img/camry.jpg">
+			<h3>{{car.title}} ({{car.state}})</h3>
+			<img src="{{car.imageurl}}">
 			<br><br>
 			<a class="btn btn-primary" href="/#!/cars/{{car._id}}">View Details</a>
 		</div>
+		
 	</div>
 </section>
