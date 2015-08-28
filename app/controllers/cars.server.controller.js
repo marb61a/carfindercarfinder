@@ -7,9 +7,8 @@ var Car = mongoose.model('Car');
 var _ = require('lodash');
 
 // Create a car
-exports.create = function(req, res){
-    
-    var car = new Car(req.body);
+exports.create = function(req, res) {
+	var car = new Car(req.body);
 	car.user = req.user;
 
 	car.save(function(err) {
@@ -30,9 +29,8 @@ exports.read = function(req, res) {
 
 
 // Update a car
-exports.update = function(req, res){
-    
-    var car = req.car;
+exports.update = function(req, res) {
+	var car = req.car;
 
 	car = _.extend(car, req.body);
 
@@ -48,11 +46,10 @@ exports.update = function(req, res){
 };
 
 // Delete a car
-exports.delete = function(req, res){
-    
-    var car = req.car;
-    
-    car.remove(function(err) {
+exports.delete = function(req, res) {
+	var car = req.car;
+
+	car.remove(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -64,9 +61,8 @@ exports.delete = function(req, res){
 };
 
 // List cars
-exports.list = function(req, res){
-  
-  Car.find().sort('-created').populate('user', 'displayName').exec(function(err, cars) {
+exports.list = function(req, res) {
+	Car.find(req.query).sort('-created').populate('user', 'displayName').exec(function(err, cars) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -74,7 +70,11 @@ exports.list = function(req, res){
 		} else {
 			res.json(cars);
 		}
-	});  
+	});
+};
+
+exports.search = function(req, res){
+	console.log('Searching...');
 };
 
 // Car middleware

@@ -1,19 +1,17 @@
 'use strict';
 
 // Module Dependencies
-var users = require('../../app/controllers/users.server.controller');
-var cars = require('../../app/controllers/cars.server.controller');
+var users = require('../../app/controllers/users.server.controller'),
+	cars = require('../../app/controllers/cars.server.controller');
 
-module.exports = function(app){
-  
-    // Car Routes
+module.exports = function(app) {
+	// Car Routes
 	app.route('/cars')
-		.get(cars.list,cars.search)
+		.get(cars.list)
 		.post(users.requiresLogin, cars.create);
-	
-	app.route('/search')
-		.get(cars.search);		
 
+	app.route('/search')
+		.get(cars.search);
 	app.route('/cars/:carId')
 		.get(cars.read)
 		.put(users.requiresLogin, cars.hasAuthorization, cars.update)
