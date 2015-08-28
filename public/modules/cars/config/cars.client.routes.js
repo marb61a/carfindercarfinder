@@ -1,6 +1,7 @@
 'use strict';
 
 // Setting up route
+// Setting up route
 angular.module('cars').config(['$stateProvider',
 	function($stateProvider) {
 		// Cars state routing
@@ -18,7 +19,7 @@ angular.module('cars').config(['$stateProvider',
 			templateUrl: 'modules/cars/views/view-car.client.view.html'
 		}).
 		state('searchCar', {
-			url: '/cars/search',
+			url: '/search',
 			templateUrl: 'modules/cars/views/search-car.client.view.html'
 		}).
 		state('editCar', {
